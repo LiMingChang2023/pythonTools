@@ -7,10 +7,9 @@ folders = {
     'models': list(),
     'notebooks': list(), 
     'src': ['data', 'models', 'scripts'],
-    'visualization': list()
 }
 
-path_to_project = './styleTransfer'
+path_to_project = '../chatbot'
 
 if __name__ == '__main__':
 
