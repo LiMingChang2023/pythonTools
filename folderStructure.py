@@ -1,4 +1,5 @@
 import os
+from argparse import ArgumentParser
 from venv import create
 
 folders = {
@@ -9,9 +10,16 @@ folders = {
     'src': ['data', 'models', 'scripts'],
 }
 
-path_to_project = '../chatbot'
+def parse_arguments():
+    parser = ArgumentParser(description="Create project folder structure and venv")
+    parser.add_argument('--path', type=str, default='./', 
+                        help="Path to the project directory")
+    return parser.parse_args()
 
 if __name__ == '__main__':
+
+    args = parse_arguments()
+    path_to_project = args.path
 
     for folder in folders:
         path = os.path.join(path_to_project, folder)
@@ -30,3 +38,5 @@ if __name__ == '__main__':
 
     else:
         print('project folder construct complete')
+    
+    create(os.path.join(path_to_project, '.venv'))
